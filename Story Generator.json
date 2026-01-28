@@ -4,7 +4,7 @@
     {
       "parameters": {
         "operation": "sendDocument",
-        "chatId": "7199969559",
+        "chatId": "",
         "binaryData": true,
         "additionalFields": {
           "fileName": "story.mp3"
@@ -21,8 +21,8 @@
       "webhookId": "3e797f50-1ed2-4761-a17b-99aefb3ebaad",
       "credentials": {
         "telegramApi": {
-          "id": "EPNSxt3xBHkZPrbx",
-          "name": "Telegram account 2"
+          "id": "",
+          "name": ""
         }
       }
     },
@@ -76,7 +76,7 @@
     },
     {
       "parameters": {
-        "chatId": "7199969559",
+        "chatId": "",
         "text": "=🎧 Neue Kurzgeschichte generiert!\n🧠 Titel: \n\n{{ $json.title }}",
         "additionalFields": {}
       },
@@ -91,8 +91,8 @@
       "webhookId": "dfac8b02-3580-4edd-be32-a5401820e554",
       "credentials": {
         "telegramApi": {
-          "id": "EPNSxt3xBHkZPrbx",
-          "name": "Telegram account 2"
+          "id": "",
+          "name": ""
         }
       }
     },
