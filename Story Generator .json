@@ -1,0 +1,60 @@
+{
+  "name": "Story Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "binaryData": true,
+        "additionalFields": {
+          "fileName": "story.mp3"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2464,
+        128
+      ],
+      "id": "8a533ffa-02b2-4e03-b763-131b9c29268b",
+      "name": "Dokument senden"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/speech",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    \"model\": \"tts-1-hd\",\n    \"voice\": $json.narratorGender === 'female' ? 'nova' : 'onyx',\n    \"input\": $json.fullStory,\n    \"response_format\": \"mp3\"\n  }\n}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2240,
+        128
+      ],
+      "id": "2241a66c-0295-4816-b95f-67f780d52efc",
+      "name": "Text zu Sprache konvertieren"
+    }
+  ],
+  "connections": {},
+  "pinData": {},
+  "meta": {}
+}
